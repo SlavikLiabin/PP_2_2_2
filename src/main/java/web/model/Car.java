@@ -1,23 +1,32 @@
 package web.model;
 
+import java.util.Objects;
+
 public class Car {
-    private String brand;
+    private int id;
+    private String name;
     private String color;
-    private int series;
 
-    public Car() {}
-    public Car(String brand, String color, int series) {
-        this.brand = brand;
+    public Car(int id, String name, String color) {
+        this.id = id;
+        this.name = name;
         this.color = color;
-        this.series = series;
     }
 
-    public String getBrand() {
-        return brand;
+    public int getId() {
+        return id;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getColor() {
@@ -28,11 +37,16 @@ public class Car {
         this.color = color;
     }
 
-    public int getSeries() {
-        return series;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return id == car.id && Objects.equals(name, car.name) && Objects.equals(color, car.color);
     }
 
-    public void setSeries(int series) {
-        this.series = series;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, color);
     }
 }

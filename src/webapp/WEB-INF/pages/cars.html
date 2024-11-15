@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Cars</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: left;
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        table[border] {
+            border: none;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Cars List</h1>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="car : ${cars}">
+                <td th:utext="${car.id}">id</td>
+                <td th:utext="${car.name}">name</td>
+                <td th:utext="${car.color}">color</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
